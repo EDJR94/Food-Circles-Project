@@ -239,10 +239,16 @@ st.sidebar.image(image,width=240)
 st.sidebar.markdown("""___""")
 st.sidebar.markdown("# Bem Vindo ao Food Circles")
 
-selected_filters = st.sidebar.multiselect('# Selecione os Países que deseja filtrar abaixo:',df2['country_code'].unique(),default=['Brazil','United States of America','India','Australia','South Africa','New Zeland','England'])
+selected_filters_country = st.sidebar.multiselect('Selecione os Países que deseja filtrar abaixo:',df2['country_code'].unique(),default=['Brazil','United States of America','Australia','South Africa','New Zeland','England'])
+price_slider = st.sidebar.slider('Selecione até qual valor($) de Um Prato para Dois',
+                             value=755,
+                             min_value=0,
+                             max_value=755)
 
-selected_filters = df2['country_code'].isin(selected_filters)
-location_info = df2.loc[selected_filters,:]
+selected_filters_country = df2['country_code'].isin(selected_filters_country) 
+df2 = df2.loc[selected_filters_country,:]
+filtro_slider = df2['average_cost_for_two'] <= price_slider
+df2 = df2.loc[filtro_slider,:]
 #==========================================================
 #Página Central Streamlit
 #==========================================================
@@ -265,5 +271,5 @@ with st.container():
 st.markdown("""___""")
 st.markdown('<div style="font-size: 36px">Encontre os melhores restaurantes da sua região aqui!</div>', unsafe_allow_html=True)
 with st.container():
-    map_ = criar_mapa(location_info)
+    map_ = criar_mapa(df2)
     folium_static(map_, width=1024, height=600)

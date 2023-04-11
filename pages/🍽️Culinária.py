@@ -232,10 +232,10 @@ st.sidebar.image(image,width=240)
 st.sidebar.markdown("""___""")
 st.sidebar.markdown("# Bem Vindo ao Food Circles")
 
-selected_filters_country = st.sidebar.multiselect('# Selecione os Países que deseja filtrar abaixo:',df2['country_code'].unique(),default=['Brazil','United States of America','India','Australia','South Africa','New Zeland','England'])
-selected_filters_cuisines = st.sidebar.multiselect('# Selecione o tipo de Culinária:',df2['cuisines'].unique(),default=['Brazilian','Japanese','Arabian'])
+selected_filters_country = st.sidebar.multiselect('Selecione os Países que deseja filtrar abaixo:',df2['country_code'].unique(),default=['Brazil','United States of America','India','Australia','South Africa','New Zeland','England'])
+selected_filters_cuisines = st.sidebar.multiselect('Selecione o tipo de Culinária:',df2['cuisines'].unique(),default=['Brazilian','Japanese','Arabian'])
 price_slider = st.sidebar.slider('Selecione até qual valor($) de Um Prato para Dois',
-                             value=100,
+                             value=755,
                              min_value=0,
                              max_value=755)
 
