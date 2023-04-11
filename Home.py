@@ -263,7 +263,7 @@ with st.container():
         col5.metric('Avaliações na Plataforma', f"{sum_votes:,}".replace(',', '.'))   
     
 st.markdown("""___""")
-st.markdown('<div style="text-align: center; font-size: 36px">Encontre os melhores restaurantes da sua região aqui!</div>', unsafe_allow_html=True)
+st.markdown('<div style="font-size: 36px">Encontre os melhores restaurantes da sua região aqui!</div>', unsafe_allow_html=True)
 with st.container():
     map_ = criar_mapa(location_info)
     folium_static(map_, width=1024, height=600)
