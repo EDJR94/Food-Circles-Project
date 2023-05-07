@@ -90,7 +90,7 @@ pessoas?
 online e fazem entregas?
 
 # 2. Premissas
-1. Marketplace foi o modelu assumido para o negócio
+1. Marketplace foi o modelo assumido para o negócio
 2. Dentre as visões, as assumidas para o negócio foram: Visão Geral, Visão País, Visão Culinária e Visão Cidade.
 
 # 3. Estratégia de Solução
