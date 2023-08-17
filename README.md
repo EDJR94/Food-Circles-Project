@@ -1,156 +1,127 @@
-# 1. Problema de Negócio
+# 1. Business Problem
 
-A empresa Food Circles é uma marketplace de restaurantes. Ou seja, seu core business é facilitar o encontro e negociações de clientes e restaurantes. Os restaurantes fazem o cadastro dentro da plataforma da Food Circles, que disponibiliza informações como endereço, tipo de culinária servida, se possui reservas, se faz entregas e também uma nota de avaliação dos serviços e produtos do restaurante, dentre outras informações.
+Food Circles is a restaurant marketplace. Its core business is to facilitate the connection and negotiations between customers and restaurants. Restaurants register on the Food Circles platform, providing information such as address, cuisine type, reservation availability, delivery options, and a rating for their services and products, among other details.
 
-O CEO precisa tomar as melhores decisões estratégicas , e para isso, ele precisa que seja feita uma análise nos dados da empresa e que sejam gerados dashboards em uma única ferramenta para que o ele possa consultar rapidamente e tomar decisões rápidas. O CEO gostaria de ver as seguintes visões de crescimento:
+The CEO needs to make informed strategic decisions, and to do so, an analysis of the company's data is required along with the creation of dashboards within a unified tool. These dashboards will allow the CEO to quickly access information and make swift decisions. The CEO is interested in the following growth insights:
 
-## Visão Geral:
-1. Quantos restaurantes únicos estão registrados?
-2. Quantos países únicos estão registrados?
-3. Quantas cidades únicas estão registradas?
-4. Qual o total de avaliações feitas?
-5. Qual o total de tipos de culinária registrados?
+## Overview:
+1. How many unique restaurants are registered?
+2. How many unique countries are registered?
+3. How many unique cities are registered?
+4. What is the total number of reviews?
+5. How many distinct cuisine types are registered?
 
-## Visão País:
-1. Qual o nome do país que possui mais cidades registradas?
-2. Qual o nome do país que possui mais restaurantes registrados?
-3. Qual o nome do país que possui mais restaurantes com o nível de preço igual a 4
-registrados?
-4. Qual o nome do país que possui a maior quantidade de tipos de culinária
-distintos?
-5. Qual o nome do país que possui a maior quantidade de avaliações feitas?
-6. Qual o nome do país que possui a maior quantidade de restaurantes que fazem
-entrega?
-7. Qual o nome do país que possui a maior quantidade de restaurantes que aceitam
-reservas?
-8. Qual o nome do país que possui, na média, a maior quantidade de avaliações
-registrada?
-9. Qual o nome do país que possui, na média, a maior nota média registrada?
-10. Qual o nome do país que possui, na média, a menor nota média registrada?
-11. Qual a média de preço de um prato para dois por país?
+## Country View:
+1. Which country has the most registered cities?
+2. Which country has the most registered restaurants?
+3. Which country has the most restaurants with a price level of 4?
+4. Which country has the highest number of distinct cuisine types?
+5. Which country has the most reviews?
+6. Which country has the most restaurants offering delivery?
+7. Which country has the most restaurants accepting reservations?
+8. Which country has the highest average number of reviews?
+9. Which country has the highest average rating?
+10. Which country has the lowest average rating?
+11. What is the average price for a meal for two, per country?
 
-## Visão Cidade:
-1. Qual o nome da cidade que possui mais restaurantes registrados?
-2. Qual o nome da cidade que possui mais restaurantes com nota média acima de
-4?
-3. Qual o nome da cidade que possui mais restaurantes com nota média abaixo de
-2.5?
-4. Qual o nome da cidade que possui o maior valor médio de um prato para dois?
-5. Qual o nome da cidade que possui a maior quantidade de tipos de culinária
-distintas?
-6. Qual o nome da cidade que possui a maior quantidade de restaurantes que fazem
-reservas?
-7. Qual o nome da cidade que possui a maior quantidade de restaurantes que fazem
-entregas?
-8. Qual o nome da cidade que possui a maior quantidade de restaurantes que
-aceitam pedidos online?
+## City View:
+1. Which city has the most registered restaurants?
+2. Which city has the most restaurants with an average rating above 4?
+3. Which city has the most restaurants with an average rating below 2.5?
+4. Which city has the highest average price for a meal for two?
+5. Which city has the most distinct cuisine types?
+6. Which city has the most restaurants accepting reservations?
+7. Which city has the most restaurants offering delivery?
+8. Which city has the most restaurants accepting online orders?
 
-## Visão Restaurantes:
-1. Qual o nome do restaurante que possui a maior quantidade de avaliações?
-2. Qual o nome do restaurante com a maior nota média?
-3. Qual o nome do restaurante que possui o maior valor de uma prato para duas
-pessoas?
-4. Qual o nome do restaurante de tipo de culinária brasileira que possui a menor
-média de avaliação?
-5. Qual o nome do restaurante de tipo de culinária brasileira, e que é do Brasil, que
-possui a maior média de avaliação?
-6. Os restaurantes que aceitam pedido online são também, na média, os
-restaurantes que mais possuem avaliações registradas?
-7. Os restaurantes que fazem reservas são também, na média, os restaurantes que
-possuem o maior valor médio de um prato para duas pessoas?
-8. Os restaurantes do tipo de culinária japonesa dos Estados Unidos da América
-possuem um valor médio de prato para duas pessoas maior que as churrascarias
-americanas (BBQ)?
+## Restaurants View:
+1. Which restaurant has the most reviews?
+2. Which restaurant has the highest average rating?
+3. Which restaurant has the highest average price for a meal for two?
+4. Among Brazilian cuisine restaurants, which has the lowest average rating?
+5. Among Brazilian cuisine restaurants in Brazil, which has the highest average rating?
+6. Are restaurants that accept online orders also the ones with the highest average number of reviews?
+7. Are restaurants that accept reservations also the ones with the highest average price for a meal for two?
+8. Do Japanese cuisine restaurants in the United States have a higher average price for a meal for two compared to American BBQ restaurants?
 
-## Visão Culinária:
-1. Dos restaurantes que possuem o tipo de culinária italiana, qual o nome do
-restaurante com a maior média de avaliação?
-2. Dos restaurantes que possuem o tipo de culinária italiana, qual o nome do
-restaurante com a menor média de avaliação?
-3. Dos restaurantes que possuem o tipo de culinária americana, qual o nome do
-restaurante com a maior média de avaliação?
-4. Dos restaurantes que possuem o tipo de culinária americana, qual o nome do
-restaurante com a menor média de avaliação?
-5. Dos restaurantes que possuem o tipo de culinária árabe, qual o nome do
-restaurante com a maior média de avaliação?
-6. Dos restaurantes que possuem o tipo de culinária árabe, qual o nome do
-restaurante com a menor média de avaliação?
-7. Dos restaurantes que possuem o tipo de culinária japonesa, qual o nome do
-restaurante com a maior média de avaliação?
-8. Dos restaurantes que possuem o tipo de culinária japonesa, qual o nome do
-restaurante com a menor média de avaliação?
-9. Dos restaurantes que possuem o tipo de culinária caseira, qual o nome do
-restaurante com a maior média de avaliação?
-10. Dos restaurantes que possuem o tipo de culinária caseira, qual o nome do
-restaurante com a menor média de avaliação?
-11. Qual o tipo de culinária que possui o maior valor médio de um prato para duas
-pessoas?
-12. Qual o tipo de culinária que possui a maior nota média?
-13. Qual o tipo de culinária que possui mais restaurantes que aceitam pedidos
-online e fazem entregas?
+## Cuisine View:
+1. Among Italian cuisine restaurants, which has the highest average rating?
+2. Among Italian cuisine restaurants, which has the lowest average rating?
+3. Among American cuisine restaurants, which has the highest average rating?
+4. Among American cuisine restaurants, which has the lowest average rating?
+5. Among Arabian cuisine restaurants, which has the highest average rating?
+6. Among Arabian cuisine restaurants, which has the lowest average rating?
+7. Among Japanese cuisine restaurants, which has the highest average rating?
+8. Among Japanese cuisine restaurants, which has the lowest average rating?
+9. Among homemade cuisine restaurants, which has the highest average rating?
+10. Among homemade cuisine restaurants, which has the lowest average rating?
+11. Which cuisine type has the highest average price for a meal for two?
+12. Which cuisine type has the highest average rating?
+13. Which cuisine type has the most restaurants accepting online orders and offering delivery?
 
-# 2. Premissas
-1. Marketplace foi o modelo assumido para o negócio
-2. Dentre as visões, as assumidas para o negócio foram: Visão Geral, Visão País, Visão Culinária e Visão Cidade.
+# 2. Assumptions
+1. Marketplace model was assumed for the business.
+2. Assumed views for the business are: Overview, Country, Cuisine, and City.
 
-# 3. Estratégia de Solução
+# 3. Solution Strategy
 
-1. O dashboard foi construído com base nas métricas das principais visões do modelo de negócio da empresa:
-    1. Visão Geral
-    2. Visão País
-    3. Visão Cidades
-    4. Visão Culinária
-2. Para cada visão é representado pelo seguintes conjuntos de métricas:
+1. Dashboards were built based on key metrics from the main business views:
+    1. Overview
+    2. Country
+    3. City
+    4. Cuisine
+2. Each view is represented by the following sets of metrics:
     
-    ### Visão Geral:
+    ### Overview:
     
-    1. Restaurantes cadastrados
-    2. Países distintos cadastrados
-    3. Cidades distintas cadastradas.
-    4. Culinárias oferecidas.
-    5. Avaliações totais feitas na plafatorma.
-    6. Mapa com a posição dos restaurantes
+    1. Registered restaurants
+    2. Distinct registered countries
+    3. Distinct registered cities
+    4. Offered cuisines
+    5. Total reviews on the platform
+    6. Map showing restaurant locations
     
-    ### Visão País:
+    ### Country View:
     
-    1. Quantidade de restaurantes por País
-    2. Preço de Um Prato Para 2 por País
-    3. Tipos de culinária por País
-    4. Média de avaliação por País
+    1. Number of restaurants per country
+    2. Price for Two People by country
+    3. Distinct cuisine types per country
+    4. Average rating by country
     
-    ### Visão Culinária:
+    ### Cuisine View:
     
-    1. Restaurante maior quantidade de avaliações
-    2. Restaurante melhor avaliado
-    3. Restaurante com a maior preço Para 2
-    4. Culinária melhor avaliada
+    1. Restaurant with the most reviews
+    2. Best-rated restaurant
+    3. Restaurant with highest price for Two People
+    4. Best-rated cuisine
     
-    ### Visão Cidades:
+    ### City View:
     
-    1. Quantidade de restaurante por Cidade
-    2. Cidade com melhores e piores avaliações
-    3. Cidades com maiores preços Para 2
-    4. Cidades que mais aceitam entregas online.
+    1. Number of restaurants per city
+    2. Cities with the best and worst ratings
+    3. Cities with the highest price for Two People
+    4. Cities with the highest number of restaurants accepting online orders.
 
-# 4. Top Insights de dados
+# 4. Top Data Insights
 
-1. Os restaurantes que aceitam pedidos online não necessariamente são os que mais possuem avaliações na plataforma. 
-2. Os restaurantes que fazem reservas são, na média, os que possuem o maior valor médio de Um Prato Para 2 Pessoas.
-3. Por mais que os EUA tenham a maior quantidade de restaurates com o maior nível de preço entre todos os países, ele não possui, na média, os restaurante com maior preço de Um Prato Para 2 Pessoas.
+1. Restaurants that accept online orders are not necessarily the ones with the most reviews on the platform.
+2. Restaurants that accept reservations tend to have higher average prices for a meal for two.
+3. Despite having the highest number of restaurants with the highest price level, the United States does not have the highest average price for a meal for two.
 
-# 5. Produto Final
+# 5. Final Product
 
-Painel online, hospedado em um Cloud e disponível para acesso em qualquer dispositivo conectado à internet.
+An online dashboard hosted in the cloud, accessible from any internet-connected device.
 
-O painel pode ser acessado através desse link: [https://projects-foodcircle.streamlit.app/](https://projects-foodcircle.streamlit.app/)
+The dashboard can be accessed through this link: [https://projects-foodcircle.streamlit.app/](https://projects-foodcircle.streamlit.app/)
 
-# 6. Conclusão
+# 6. Conclusion
 
-O objetivo desse projeto é criar um dashboard com gráficos/tabelas que exibam as métricas de negócio da melhor forma possível para o CEO tomar suas decisões.
+The aim of this project is to create dashboards with charts and tables that present business metrics in the best possible way for the CEO to make decisions.
 
-Podemos concluir que o dashboard cumpre o que foi pedido pelo CEO, já que ele pode selecionar métricas desejadas por ele da forma que melhor preferir, englobando as principais visões marketplace Food Circles.
+We can conclude that the dashboard fulfills the CEO's requirements, allowing them to select desired metrics in the preferred way, covering the main views of the Food Circles marketplace.
 
-# 7. Próximos Passos
+# 7. Next Steps
 
-1. Podemos observar, portanto, que a maior parte do negócio está concentrado nos EUA e na Índia, onde se encontram restaurantes consolidados com bastante avaliações. O CEO deve se concentrar, agora, em países que a plataforma vem alcançando pouco e com avaliações baixas, como no Brazil, por exemplo.
-2. Reduzir a quantidade de métricas em cada visão para focar em mais em fazer as perguntas certas.
+1. It's evident that a significant portion of the business is concentrated in the United States and India, where established restaurants with numerous reviews are located. The CEO should focus efforts on countries with lower platform adoption and lower ratings, such as Brazil.
+2. Streamline the number of metrics in each view to focus on asking the right questions.
+
